@@ -1,7 +1,10 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import './LoginPage.css'
 
 function LoginPage() {
+  const navigate = useNavigate()
+
   const [formData, setFormData] = useState({
     correo: '',
     contrasena: '',
@@ -15,11 +18,15 @@ function handleChange(event) {
     [name]: value,
   }))
 }
-  function handleSubmit(event) {
-    event.preventDefault()
+function handleSubmit(event) {
+  event.preventDefault()
 
-    console.log('Datos del formulario:', formData)
+  if (!formData.correo.trim() || !formData.contrasena.trim()) {
+    return
   }
+
+  navigate('/inicio', { replace: true })
+}
 
   return (
     <section className="login-card">
