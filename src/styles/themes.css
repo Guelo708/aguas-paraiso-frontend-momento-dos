@@ -1,0 +1,20 @@
+:root,
+:root[data-theme="light"] {
+  --theme-background: #f4f8fb;
+  --theme-surface: #ffffff;
+  --theme-text: #152238;
+  --theme-text-muted: #5d6878;
+  --theme-border: #d9e5ec;
+  --theme-navbar: #0033a0;
+  --theme-navbar-text: #ffffff;
+}
+
+:root[data-theme="dark"] {
+  --theme-background: #071a36;
+  --theme-surface: #0d2852;
+  --theme-text: #ffffff;
+  --theme-text-muted: #b7dce5;
+  --theme-border: #1c4a75;
+  --theme-navbar: #001f63;
+  --theme-navbar-text: #ffffff;
+}

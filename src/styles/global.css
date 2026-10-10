@@ -1,0 +1,56 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  min-height: 100%;
+  font-family: var(--font-body);
+  background-color: var(--theme-background);
+  color: var(--theme-text);
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--theme-background);
+  color: var(--theme-text);
+  font-family: var(--font-body);
+  line-height: 1.5;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  color: var(--theme-text);
+}
+
+#root {
+  min-height: 100vh;
+}

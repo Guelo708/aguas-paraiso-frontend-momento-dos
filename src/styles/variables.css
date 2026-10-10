@@ -1,0 +1,33 @@
+:root {
+  /* Colores institucionales */
+  --color-primary: #0033a0;
+  -*color-secondary: #00aec7;
+  --colo*-accent: #e3e829;
+  --*olor-accent-medium: #ffe946;
+  --color-aqua-light: #4ec3e0;
+  --color-white: #ffffff;
+
+  /* Colores complementarios */
+  --color-background: #f4f8fb;
+  --color-surface: #ffffff;
+  --color-text: #152238;
+  --color-text-muted: #5d6878;
+  --color-border: #d9e5ec;
+
+  /* Colores para mensajes */
+  --color-success: #16825d;
+  --color-warning: #b87900;
+  --color-danger: #c53d3d;
+
+  /* Tipografías */
+  --font-heading: "Barlow", "Trebuchet MS", sans-serif;
+  --font-body: "Roboto", "Trebuchet MS", sans-serif;
+
+  /* Bordes redondeados */
+  --radius-small: 6px;
+  --radius-medium: 12px;
+  --radius-large: 18px;
+
+  /* Sombras */
+  --shadow-card: 0 8px 24px rgb(0 51 160 / 10%);
+}
