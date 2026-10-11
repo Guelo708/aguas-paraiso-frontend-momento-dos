@@ -23,8 +23,10 @@
 
 .login-card__header h2 {
   margin-bottom: 8px;
-  color: var(--color-primary);
+  color: var(--color-accent);
   font-size: 2rem;
+  font-weight: 800;
+  text-shadow: 0 1px 2px rgb(0 51 160 / 18%);
 }
 
 .login-card__header p {
@@ -91,4 +93,51 @@
   .login-card {
     padding: 28px 20px;
   }
+}
+
+.login-card .login-card__header h2 {
+  color: #e3e829 !important;
+}
+:root[data-theme="light"] .login-card {
+  background-color: #00aec7;
+  border-color: rgb(255 255 255 / 55%);
+  box-shadow: 0 18px 45px rgb(0 51 160 / 22%);
+}
+
+:root[data-theme="light"] .login-card__eyebrow {
+  color: #0033a0;
+}
+
+:root[data-theme="light"] .login-card .login-card__header h2 {
+  color: #e3e829 !important;
+  text-shadow: 0 2px 5px rgb(0 51 160 / 35%);
+}
+
+:root[data-theme="light"] .login-card__header p {
+  color: #00306f;
+}
+
+:root[data-theme="light"] .login-form__group label {
+  color: #00256f;
+}
+
+:root[data-theme="light"] .login-form__group input {
+  color: #152238;
+  background-color: #ffffff;
+  border-color: rgb(0 51 160 / 28%);
+}
+
+:root[data-theme="light"] .login-form__group input:focus {
+  border-color: #0033a0;
+  box-shadow: 0 0 0 4px rgb(227 232 41 / 35%);
+}
+
+:root[data-theme="light"] .login-form__button {
+  color: #ffffff;
+  background-color: #0033a0;
+}
+
+:root[data-theme="light"] .login-form__button:hover {
+  color: #0033a0;
+  background-color: #e3e829;
 }
