@@ -6,6 +6,12 @@ function Navbar() {
   const navigate = useNavigate()
   const { theme, toggleTheme } = useTheme()
 
+  function getLinkClass({ isActive }) {
+    return isActive
+      ? 'navbar__link navbar__link--active'
+      : 'navbar__link'
+  }
+
   function handleLogout() {
     navigate('/login')
   }
@@ -35,22 +41,21 @@ function Navbar() {
           aria-label="Navegación principal"
         >
           <NavLink
-            className={({ isActive }) =>
-              isActive
-                ? 'navbar__link navbar__link--active'
-                : 'navbar__link'
-            }
+            className={getLinkClass}
             to="/inicio"
           >
             Inicio
           </NavLink>
 
           <NavLink
-            className={({ isActive }) =>
-              isActive
-                ? 'navbar__link navbar__link--active'
-                : 'navbar__link'
-            }
+            className={getLinkClass}
+            to="/gestion/suscriptores"
+          >
+            Suscriptores
+          </NavLink>
+
+          <NavLink
+            className={getLinkClass}
             to="/predios"
           >
             Predios
@@ -76,7 +81,9 @@ function Navbar() {
             </span>
 
             <span>
-              {theme === 'light' ? 'Modo oscuro' : 'Modo claro'}
+              {theme === 'light'
+                ? 'Modo oscuro'
+                : 'Modo claro'}
             </span>
           </button>
 

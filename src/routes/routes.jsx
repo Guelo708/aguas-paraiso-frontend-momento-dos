@@ -6,10 +6,9 @@ import {
 
 import AuthLayout from '../layouts/AuthLayout/AuthLayout.jsx'
 import MainLayout from '../layouts/MainLayout/MainLayout.jsx'
-import LoginPage from '../pages/LoginPage/LoginPage.jsx'
 import DashboardPage from '../pages/DashboardPage/DashboardPage.jsx'
-
-
+import LoginPage from '../pages/LoginPage/LoginPage.jsx'
+import SuscriptoresPage from '../pages/SuscriptoresPage/SuscriptoresPage.jsx'
 
 function AppRoutes() {
   return (
@@ -30,6 +29,11 @@ function AppRoutes() {
         <Route
           path="/inicio"
           element={<DashboardPage />}
+        />
+
+        <Route
+          path="/gestion/suscriptores"
+          element={<SuscriptoresPage />}
         />
       </Route>
 

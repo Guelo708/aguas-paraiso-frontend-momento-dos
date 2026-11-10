@@ -1,7 +1,42 @@
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { listarUsuarios } from '../../services/usuarioService.js'
 import './DashboardPage.css'
 
-function DashboardPage() {
+function DashboardPage() {  const [totalUsuarios, setTotalUsuarios] = useState(0)
+  const [loadingUsuarios, setLoadingUsuarios] = useState(true)
+  const [errorUsuarios, setErrorUsuarios] = useState('')
+
+  useEffect(() => {
+    let active = true
+
+    async function cargarUsuarios() {
+      try {
+        setLoadingUsuarios(true)
+        setErrorUsuarios('')
+
+        const usuarios = await listarUsuarios()
+
+        if (active) {
+          setTotalUsuarios(Array.isArray(usuarios) ? usuarios.length : 0)
+        }
+      } catch (error) {
+        if (active) {
+          setErrorUsuarios(error.message)
+        }
+      } finally {
+        if (active) {
+          setLoadingUsuarios(false)
+        }
+      }
+    }
+
+    cargarUsuarios()
+
+    return () => {
+      active = false
+    }
+  }, [])
   return (
     <section className="dashboard">
       <header className="dashboard__hero">
@@ -37,19 +72,23 @@ function DashboardPage() {
         className="dashboard__summary"
         aria-label="Resumen del sistema"
       >
-        <article className="dashboard-card dashboard-card--primary">
-          <span className="dashboard-card__number">
-            01
-          </span>
+  <article className="dashboard-card dashboard-card--primary">
+  <span className="dashboard-card__number">
+    {loadingUsuarios ? '...' : totalUsuarios}
+  </span>
 
-          <div>
-            <h2>Predios</h2>
+  <div>
+    <h2>Suscriptores</h2>
 
-            <p>
-              Registra, consulta, edita y elimina predios temporalmente.
-            </p>
-          </div>
-        </article>
+    {errorUsuarios ? (
+      <p>{errorUsuarios}</p>
+    ) : (
+      <p>
+        Usuarios registrados actualmente en Aguas Paraíso.
+      </p>
+    )}
+  </div>
+</article>
 
         <article className="dashboard-card dashboard-card--secondary">
           <span className="dashboard-card__number">

@@ -1,9 +1,9 @@
 :root {
   /* Colores institucionales */
   --color-primary: #0033a0;
-  -*color-secondary: #00aec7;
-  --colo*-accent: #e3e829;
-  --*olor-accent-medium: #ffe946;
+  --color-secondary: #00aec7;
+  --color-accent: #e3e829;
+  --color-accent-medium: #ffe946;
   --color-aqua-light: #4ec3e0;
   --color-white: #ffffff;
 
