@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import {
   actualizarUsuario,
   buscarUsuarioPorId,
@@ -11,6 +12,7 @@ import SuscriptorForm from '../../components/SuscriptorForm/SuscriptorForm.jsx'
 import './SuscriptoresPage.css'
 
 function SuscriptoresPage() {
+  const navigate = useNavigate()
   const [usuarios, setUsuarios] = useState([])
   const [busqueda, setBusqueda] = useState('')
   const [loading, setLoading] = useState(true)
@@ -202,7 +204,7 @@ function SuscriptoresPage() {
   }
 
   function handleVer(usuario) {
-    console.log('Consultar suscriptor', usuario)
+    navigate(`/gestion/suscriptores/${usuario.id}`)
   }
 
   async function handleEditar(usuario) {

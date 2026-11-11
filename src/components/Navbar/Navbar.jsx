@@ -1,6 +1,7 @@
 import { NavLink, useNavigate } from 'react-router-dom'
 import { useTheme } from '../../context/ThemeContext.jsx'
 import './Navbar.css'
+import './AdminNavigation.css'
 
 function Navbar() {
   const navigate = useNavigate()
@@ -54,12 +55,17 @@ function Navbar() {
             Suscriptores
           </NavLink>
 
-          <NavLink
-            className={getLinkClass}
-            to="/predios"
-          >
-            Predios
-          </NavLink>
+          <NavLink className={getLinkClass} to="/predios">Predios</NavLink>
+          <NavLink className={getLinkClass} to="/facturas">Facturas</NavLink>
+          <NavLink className={getLinkClass} to="/pagos">Pagos</NavLink>
+          <details className="navbar__catalogs">
+            <summary>Catálogos</summary>
+            <div className="navbar__catalog-menu">
+              <NavLink className={getLinkClass} to="/catalogos/sectores">Sectores</NavLink>
+              <NavLink className={getLinkClass} to="/catalogos/tipos-predio">Tipos de predio</NavLink>
+              <NavLink className={getLinkClass} to="/catalogos/tarifas">Tarifas</NavLink>
+            </div>
+          </details>
         </nav>
 
         <div className="navbar__actions">
