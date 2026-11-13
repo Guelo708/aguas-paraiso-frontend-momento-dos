@@ -1,4 +1,4 @@
-import { Navigate, Route, Routes } from 'react-router-dom'
+﻿import { Navigate, Route, Routes } from 'react-router-dom'
 import AuthLayout from '../layouts/AuthLayout/AuthLayout.jsx'
 import MainLayout from '../layouts/MainLayout/MainLayout.jsx'
 import DashboardPage from '../pages/DashboardPage/DashboardPage.jsx'
@@ -11,6 +11,7 @@ import TiposPredioPage from '../pages/TiposPredioPage/TiposPredioPage.jsx'
 import TarifasPage from '../pages/TarifasPage/TarifasPage.jsx'
 import FacturasPage from '../pages/FacturasPage/FacturasPage.jsx'
 import PagosPage from '../pages/PagosPage/PagosPage.jsx'
+import EstadisticasPage from '../pages/EstadisticasPage/EstadisticasPage.jsx'
 
 function AppRoutes() {
   return <Routes>
@@ -18,6 +19,7 @@ function AppRoutes() {
     <Route element={<AuthLayout />}><Route path="/login" element={<LoginPage />} /></Route>
     <Route element={<MainLayout />}>
       <Route path="/inicio" element={<DashboardPage />} />
+      <Route path="/estadisticas" element={<EstadisticasPage />} />
       <Route path="/gestion/suscriptores" element={<SuscriptoresPage />} />
       <Route path="/gestion/suscriptores/:id" element={<SuscriptorDetallePage />} />
       <Route path="/predios" element={<PrediosPage />} />

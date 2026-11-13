@@ -48,6 +48,14 @@ function Navbar() {
             Inicio
           </NavLink>
 
+          {/* NUEVO ENLACE A ESTADÍSTICAS */}
+          <NavLink
+            className={getLinkClass}
+            to="/estadisticas"
+          >
+            Estadísticas
+          </NavLink>
+
           <NavLink
             className={getLinkClass}
             to="/gestion/suscriptores"

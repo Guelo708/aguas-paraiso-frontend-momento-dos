@@ -1,0 +1,156 @@
+﻿/* Contenedor principal con las tipografías solicitadas */
+.estadisticas-container {
+  font-family: 'Barlow', 'Roboto', 'FS Joe', 'Trebuchet MS', sans-serif;
+  padding: 1.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  color: #0033A0;
+}
+
+.estadisticas-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  border-bottom: 2px solid #00AEC7;
+  padding-bottom: 1rem;
+}
+
+.estadisticas-header h1 {
+  margin: 0;
+  color: var(--text-color, #0033A0) !important;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 700;
+}
+
+.year-selector {
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #00AEC7;
+  background-color: #FFFFFF;
+  color: #0033A0;
+  font-size: 1rem;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  outline: none;
+}
+
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.kpi-card {
+  background-color: var(--card-bg, #FFFFFF);
+  border-left: 5px solid #00AEC7;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+/* Uso estratégico del amarillo sutil (#FFE946) solo en hover para no cansar la vista */
+.kpi-card:hover {
+  transform: translateY(-4px);
+  border-left-color: #FFE946; 
+  box-shadow: 0 6px 12px rgba(0, 51, 160, 0.15);
+}
+
+.kpi-card h3 {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #0033A0;
+  font-family: 'Trebuchet MS', sans-serif;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.kpi-card .kpi-value {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #0033A0;
+  font-family: 'Roboto', sans-serif;
+}
+
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+}
+
+.chart-card {
+  background-color: var(--card-bg, #FFFFFF);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-top: 4px solid #4EC3E0;
+}
+
+.chart-card h3 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #0033A0;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 600;
+}
+
+.chart-wrapper {
+  height: 300px;
+  width: 100%;
+}
+
+.loading-state, .error-state, .empty-state {
+  text-align: center;
+  padding: 3rem;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  background-color: var(--card-bg, #FFFFFF);
+  color: #0033A0;
+  font-family: 'Roboto', sans-serif;
+  border: 1px dashed #00AEC7;
+}
+
+.btn-reintentar {
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #0033A0;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+/* Uso de contraste alto con el amarillo brillante (#E3E829) para llamados a la acción */
+.btn-reintentar:hover {
+  background-color: #E3E829;
+  color: #0033A0; 
+}
+
+@media (max-width: 768px) {
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Corrección de contraste para el título en cualquier modo */
+.estadisticas-header h1 {
+  margin: 0;
+  color: var(--text-color, #0033A0) !important;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 700;
+}
+
