@@ -1,13 +1,14 @@
-﻿/* Contenedor principal con las tipografías solicitadas */
-.estadisticas-container {
+﻿.estadisticas-container {
   font-family: 'Barlow', 'Roboto', 'FS Joe', 'Trebuchet MS', sans-serif;
   padding: 1.5rem;
-  max-width: 1400px;
-  margin: 0 auto;
+  max-width: 1360px;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0 auto 3rem auto;
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  color: #0033A0;
+  color: var(--text-h, #0033A0);
 }
 
 .estadisticas-header {
@@ -22,7 +23,7 @@
 
 .estadisticas-header h1 {
   margin: 0;
-  color: var(--text-color, #0033A0) !important;
+  color: var(--text-h, #0033A0);
   font-family: 'Barlow', sans-serif;
   font-weight: 700;
 }
@@ -42,14 +43,14 @@
 
 .kpi-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 1.25rem;
 }
 
 .kpi-card {
-  background-color: var(--card-bg, #FFFFFF);
+  background-color: #FFFFFF;
   border-left: 5px solid #00AEC7;
-  padding: 1.5rem;
+  padding: 1.25rem;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   display: flex;
@@ -58,16 +59,15 @@
   transition: all 0.3s ease;
 }
 
-/* Uso estratégico del amarillo sutil (#FFE946) solo en hover para no cansar la vista */
 .kpi-card:hover {
   transform: translateY(-4px);
-  border-left-color: #FFE946; 
+  border-left-color: #FFE946;
   box-shadow: 0 6px 12px rgba(0, 51, 160, 0.15);
 }
 
 .kpi-card h3 {
   margin: 0;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: #0033A0;
   font-family: 'Trebuchet MS', sans-serif;
   text-transform: uppercase;
@@ -76,7 +76,7 @@
 
 .kpi-card .kpi-value {
   margin: 0;
-  font-size: 1.8rem;
+  font-size: 1.7rem;
   font-weight: bold;
   color: #0033A0;
   font-family: 'Roboto', sans-serif;
@@ -84,21 +84,24 @@
 
 .charts-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.75rem;
+  width: 100%;
 }
 
 .chart-card {
-  background-color: var(--card-bg, #FFFFFF);
+  background-color: #FFFFFF;
   padding: 1.5rem;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-top: 4px solid #4EC3E0;
+  min-width: 0;
+  overflow: visible;
 }
 
 .chart-card h3 {
   margin-top: 0;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   text-align: center;
   color: #0033A0;
   font-family: 'Barlow', sans-serif;
@@ -106,7 +109,8 @@
 }
 
 .chart-wrapper {
-  height: 300px;
+  min-height: 300px;
+  height: auto;
   width: 100%;
 }
 
@@ -115,7 +119,7 @@
   padding: 3rem;
   font-size: 1.2rem;
   border-radius: 8px;
-  background-color: var(--card-bg, #FFFFFF);
+  background-color: #FFFFFF;
   color: #0033A0;
   font-family: 'Roboto', sans-serif;
   border: 1px dashed #00AEC7;
@@ -134,23 +138,13 @@
   transition: all 0.3s ease;
 }
 
-/* Uso de contraste alto con el amarillo brillante (#E3E829) para llamados a la acción */
 .btn-reintentar:hover {
   background-color: #E3E829;
-  color: #0033A0; 
+  color: #0033A0;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .charts-grid {
     grid-template-columns: 1fr;
   }
 }
-
-/* Corrección de contraste para el título en cualquier modo */
-.estadisticas-header h1 {
-  margin: 0;
-  color: var(--text-color, #0033A0) !important;
-  font-family: 'Barlow', sans-serif;
-  font-weight: 700;
-}
-

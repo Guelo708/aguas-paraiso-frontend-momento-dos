@@ -2,6 +2,10 @@
 import { estadisticasService } from '../../services/estadisticasService'
 import EstadoCarteraChart from '../../components/charts/EstadoCarteraChart'
 import FacturacionChart from '../../components/charts/FacturacionChart'
+import PagosMetodoChart from '../../components/charts/PagosMetodoChart'
+import PrediosSectorChart from '../../components/charts/PrediosSectorChart'
+import TendenciaRecaudoChart from '../../components/charts/TendenciaRecaudoChart'
+import TopDeudoresChart from '../../components/charts/TopDeudoresChart'
 import './EstadisticasPage.css'
 
 const EstadisticasPage = () => {
@@ -23,8 +27,18 @@ const EstadisticasPage = () => {
   }
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    cargarDatos()
+    const inicializarDatos = async () => {
+      try {
+        const dataResumen = await estadisticasService.obtenerResumenEstadistico()
+        setResumen(dataResumen)
+      } catch (err) {
+        setError(err.message || 'Error al conectar con el microservicio de estadísticas.')
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    inicializarDatos()
   }, [])
 
   const handleActualizar = () => {
@@ -35,7 +49,7 @@ const EstadisticasPage = () => {
   }
 
   const formatearMoneda = (valor) => {
-    if (!valor) return ''
+    if (!valor) return '$0'
     return new Intl.NumberFormat('es-CO', {
       style: 'currency',
       currency: 'COP',
@@ -68,8 +82,7 @@ const EstadisticasPage = () => {
   return (
     <div className="estadisticas-container">
       <header className="estadisticas-header">
-        {/* Forzamos el color claro explícito para que contraste perfectamente en cualquier modo */}
-        <h1 style={{ color: 'var(--text-color, #FFFFFF)' }}>Dashboard Estadístico</h1>
+        <h1>Dashboard Estadístico</h1>
         <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
           <button 
             onClick={handleActualizar} 
@@ -134,14 +147,42 @@ const EstadisticasPage = () => {
         <div className="chart-card" style={{ borderTopColor: '#E3E829' }}>
           <h3>Facturación vs Recaudo Mensual</h3>
           <div className="chart-wrapper">
-             <FacturacionChart key={'fact-' + anio + '-' + refreshKey} anio={anio} />
+            <FacturacionChart key={'fact-' + anio + '-' + refreshKey} anio={anio} />
           </div>
         </div>
         
         <div className="chart-card">
           <h3>Estado de la Cartera</h3>
           <div className="chart-wrapper">
-             <EstadoCarteraChart key={'cartera-' + anio + '-' + refreshKey} anio={anio} />
+            <EstadoCarteraChart key={'cartera-' + anio + '-' + refreshKey} anio={anio} />
+          </div>
+        </div>
+
+        <div className="chart-card" style={{ borderTopColor: '#0033A0' }}>
+          <h3>Pagos por Método de Pago</h3>
+          <div className="chart-wrapper">
+            <PagosMetodoChart key={'metodos-' + anio + '-' + refreshKey} anio={anio} />
+          </div>
+        </div>
+
+        <div className="chart-card">
+          <h3>Predios por Sector</h3>
+          <div className="chart-wrapper">
+            <PrediosSectorChart key={'sectores-' + refreshKey} />
+          </div>
+        </div>
+
+        <div className="chart-card" style={{ borderTopColor: '#E3E829' }}>
+          <h3>Tendencia Acumulada: Facturación vs Recaudo</h3>
+          <div className="chart-wrapper">
+            <TendenciaRecaudoChart key={'tendencia-' + anio + '-' + refreshKey} anio={anio} />
+          </div>
+        </div>
+
+        <div className="chart-card" style={{ borderTopColor: '#0033A0' }}>
+          <h3>Top 5 Mayor Cartera Pendiente</h3>
+          <div className="chart-wrapper">
+            <TopDeudoresChart key={'deudores-' + refreshKey} />
           </div>
         </div>
       </section>

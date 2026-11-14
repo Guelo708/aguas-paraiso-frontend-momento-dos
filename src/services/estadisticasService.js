@@ -28,5 +28,9 @@ export const estadisticasService = {
   obtenerPrediosPorTipo: async () => {
     const response = await apiAnalytics.get('/estadisticas/predios/tipos')
     return response.data
+  },
+  obtenerTopDeudores: async () => {
+    const response = await apiAnalytics.get('/estadisticas/cartera/top-deudores')
+    return response.data
   }
 }
