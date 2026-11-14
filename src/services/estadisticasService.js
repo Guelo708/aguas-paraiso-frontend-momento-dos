@@ -32,5 +32,9 @@ export const estadisticasService = {
   obtenerTopDeudores: async () => {
     const response = await apiAnalytics.get('/estadisticas/cartera/top-deudores')
     return response.data
+  },
+  obtenerCarteraPorSector: async () => {
+    const response = await apiAnalytics.get('/estadisticas/cartera/sectores')
+    return response.data
   }
 }

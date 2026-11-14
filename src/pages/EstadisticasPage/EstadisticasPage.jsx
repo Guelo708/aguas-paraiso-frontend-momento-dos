@@ -6,6 +6,8 @@ import PagosMetodoChart from '../../components/charts/PagosMetodoChart'
 import PrediosSectorChart from '../../components/charts/PrediosSectorChart'
 import TendenciaRecaudoChart from '../../components/charts/TendenciaRecaudoChart'
 import TopDeudoresChart from '../../components/charts/TopDeudoresChart'
+import CarteraSectorChart from '../../components/charts/CarteraSectorChart'
+import RecaudoMetodoPesosChart from '../../components/charts/RecaudoMetodoPesosChart'
 import './EstadisticasPage.css'
 
 const EstadisticasPage = () => {
@@ -159,9 +161,16 @@ const EstadisticasPage = () => {
         </div>
 
         <div className="chart-card" style={{ borderTopColor: '#0033A0' }}>
-          <h3>Pagos por Método de Pago</h3>
+          <h3>Pagos por Método de Pago (Cantidad)</h3>
           <div className="chart-wrapper">
             <PagosMetodoChart key={'metodos-' + anio + '-' + refreshKey} anio={anio} />
+          </div>
+        </div>
+
+        <div className="chart-card" style={{ borderTopColor: '#00AEC7' }}>
+          <h3>Recaudo en Pesos por Método de Pago</h3>
+          <div className="chart-wrapper">
+            <RecaudoMetodoPesosChart key={'metodos-pesos-' + anio + '-' + refreshKey} anio={anio} />
           </div>
         </div>
 
@@ -169,6 +178,13 @@ const EstadisticasPage = () => {
           <h3>Predios por Sector</h3>
           <div className="chart-wrapper">
             <PrediosSectorChart key={'sectores-' + refreshKey} />
+          </div>
+        </div>
+
+        <div className="chart-card" style={{ borderTopColor: '#D9534F' }}>
+          <h3>Cartera Vencida y Pendiente por Sector</h3>
+          <div className="chart-wrapper">
+            <CarteraSectorChart key={'cartera-sector-' + refreshKey} />
           </div>
         </div>
 
